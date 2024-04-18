@@ -1,7 +1,11 @@
-﻿using Pharmacy.Controllers;
+﻿using Microsoft.CodeAnalysis.Options;
+using Pharmacy.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var connectionString= builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<PharmacyDbContext>(options =>
+     options.UseSqlServer(connectionString));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,6 +27,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapMedicineEndpoints();
+
+// error so i comment it
+//app.MapMedicineEndpoints();
 
 app.Run();
