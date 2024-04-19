@@ -14,11 +14,9 @@ namespace Pharmacy.Controllers
         {
             _context = context;
         }
-    #region ENDPOINTS
-        // Endpoint //
+        #region ENDPOINTS
 
-    #region ViewMedicines
-        // GetMedicines => api/Medicines
+        #region ViewMedicines => api/Medicines
         [HttpGet]
         public async Task<IActionResult> ViewMedicines()
         {
@@ -27,34 +25,39 @@ namespace Pharmacy.Controllers
         }
         #endregion
 
-    #region ViewMedicineById
-        // GetMedicineById => api/Medicines/{id}
+        #region ViewMedicineById => api/Medicines/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetMedicineById(int id)
         {
             var Medicine = await _context.medicines.FindAsync(id);
-            if (Medicine == null)
+
+        // validate if the Medicine id is not found
+        if ( Medicine == null)
                 return NotFound($"No Medicine Found with Id{id}");
-            return Ok(Medicine);
+
+        return Ok(Medicine);
         }
         #endregion
 
-    #region AddMedicine  // error
-        // AddMedicine => api/Medicines
+        #region AddMedicine api/Medicines
         [HttpPost]
         public async Task<IActionResult> AddMedicine(MedicineDto dto)
         {
+            // validate the entered category id
             var isvalidCategory = await _context.categories.AnyAsync(c => c.CategoryId == dto.CategoryId);
-            if (!isvalidCategory)
-            {
-                return BadRequest($"Invalid Category No Category with Id {dto.CategoryId}");
-            }
-            var Medicine = new Medicine
+            if (!isvalidCategory) return BadRequest($"Invalid Category No Category with Id {dto.CategoryId}");
+
+            // validate the entered admin id
+            var isvalidAdminId = await _context.patients.AnyAsync(a => a.AdminId == dto.AdminId);
+            if ( !isvalidAdminId ) return BadRequest($"Invalid AdminID No AdminID with Id {dto.AdminId}");
+
+        var Medicine = new Medicine
             {
                 Name = dto.Name,
                 Description = dto.Description,
                 Price = dto.Price,
                 CategoryId = dto.CategoryId,
+                AdminId = dto.AdminId
             };
 
             await _context.medicines.AddAsync(Medicine);
@@ -63,25 +66,29 @@ namespace Pharmacy.Controllers
         }
         #endregion
 
-    #region UpdateMedicine
-        // UpdateMedicine => api/Medicines/{id}
+        #region UpdateMedicine api/Medicines/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateMedicine(int id, MedicineDto dto)
         {
             var Medicine = await _context.medicines.FindAsync(id);
+
+            // va;idate if the Medicine id is not found
             if (Medicine == null)
                 return NotFound($"No Medicine Found with Id{id}");
 
+            // validate the entered category id
             var isvalidCategory = await _context.categories.AnyAsync(c => c.CategoryId == dto.CategoryId);
-            if (!isvalidCategory)
-            {
-                return BadRequest($"Invalid Category No Category with Id {dto.CategoryId}");
-            }
+            if (!isvalidCategory) return BadRequest($"Invalid Category No Category with Id {dto.CategoryId}");
+
+            // validate the entered admin id 
+            var isvalidAdminId = await _context.patients.AnyAsync(a => a.AdminId == dto.AdminId);
+            if ( !isvalidAdminId ) return BadRequest($"Invalid AdminID No AdminID with Id {dto.AdminId}");
 
             Medicine.Name = dto.Name;
             Medicine.Description = dto.Description;
             Medicine.Price = dto.Price;
             Medicine.CategoryId = dto.CategoryId;
+            Medicine.AdminId = dto.AdminId;
 
             await _context.SaveChangesAsync();
             return Ok(Medicine);
@@ -91,12 +98,13 @@ namespace Pharmacy.Controllers
 
         #endregion
 
-    #region DeleteMedicine
-        // DeleteMedicine => api/Medicines/{id}
+        #region DeleteMedicine api/Medicines/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMedicine(int id)
         {
             var Medicine = await _context.medicines.FindAsync(id);
+
+            // validate if the Medicine id is not found
             if (Medicine == null)
                 return NotFound($"No Medicine Found with Id{id}");
 
@@ -105,11 +113,13 @@ namespace Pharmacy.Controllers
             return Ok(Medicine);
         }
 
-    #endregion
+#endregion
 
 
 
 
         #endregion
+
+
     }
 }
