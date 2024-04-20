@@ -23,6 +23,10 @@
         // one to many with admin
         public int AdminId { get; set; }  // FK
         public Admin Admin { get; set; } // Navigation property
-
-    }
+		public Request()
+		{
+			Status = RequestStatus.Pending; // Set default value to RequestStatus.Pending enum value
+            AdminId = 1;
+		}
+	}
 }

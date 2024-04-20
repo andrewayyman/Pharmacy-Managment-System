@@ -1,4 +1,4 @@
-﻿
+﻿ 
 
 namespace Pharmacy.Context
 
@@ -8,9 +8,16 @@ namespace Pharmacy.Context
         public PharmacyDbContext(DbContextOptions<PharmacyDbContext> options) : base(options) 
         {
         }
-    
-     
-        public DbSet<Admin> admins { get; set; }
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+            modelBuilder.Entity<Request>().Property(d => d.Date).HasDefaultValueSql("GetDate()");
+			
+
+
+		}
+
+
+		public DbSet<Admin> admins { get; set; }
         public DbSet<Patient> patients{ get; set; }
         public DbSet<Medicine> medicines { get; set; }
         public DbSet<Request> requests { get; set; }
