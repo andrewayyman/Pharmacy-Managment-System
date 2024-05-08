@@ -2,3 +2,20 @@
 global using Microsoft.EntityFrameworkCore;
 global using Pharmacy.Models;
 global using Pharmacy.Context;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using System.IdentityModel.Tokens.Jwt;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Mvc;
+global using Pharmacy.Roles;
+global using Pharmacy.Dtos;
+global using System.Security.Claims;
+global using System.Text;
+global using Microsoft.IdentityModel.Tokens;
+global using Microsoft.EntityFrameworkCore.Migrations;
+global using Microsoft.EntityFrameworkCore.Infrastructure;
+global using Pharmacy.Repositories;
+global using System.Linq.Expressions;
+
+//global using Microsoft.VisualStudio.Web.CodeGeneration.Design;

@@ -1,4 +1,4 @@
-@Pharmacy_HostAddress = http://localhost:5141
+@Pharmacy_HostAddress = http://localhost:5207
 
 GET {{Pharmacy_HostAddress}}/weatherforecast/
 Accept: application/json

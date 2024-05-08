@@ -1,156 +1,199 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Pharmacy.Dto;
-
+﻿
 namespace Pharmacy.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
 	public class RequestController : ControllerBase
 	{
-		private readonly PharmacyDbContext _context;
 
-		public RequestController(PharmacyDbContext context)
+		private readonly PharmacyDbContext _context;
+		private readonly UserManager<ApplicationUser> _userManager;
+
+
+
+
+		public RequestController( PharmacyDbContext context, UserManager<ApplicationUser> userManager )
 		{
 			_context = context;
+			_userManager = userManager;
+
 		}
 
 
-		#region ENDPOINTS
+        #region ENDPOINTS
 
-		#region Get Pending Requests
-		[HttpGet("requests/pending")]
-		public async Task<IActionResult> GetPendingRequests()
+        #region Get Requests
+        [HttpGet]
+        public async Task<IActionResult> GetRequests()
+        {
+            var allRequests = await _context.requests
+                .Include(r => r.Medicines) // Include medicines in the query
+                .ToListAsync();
+
+            if ( allRequests == null || allRequests.Count == 0 )
+                return NotFound("No requests found.");
+
+            var requestDtos = new List<RequestDto>();
+            foreach ( var request in allRequests )
+            {
+                var patient = await _userManager.FindByIdAsync(request.UserId);
+                if ( patient == null )
+                {
+                    continue;
+                }
+
+                var requestDto = new RequestDto
+                {
+					RequestId = request.Id,
+                    PatientName = patient.UserName,
+                    MedicinesNames = request.Medicines.Select(m => m.Name).ToList(),
+                    Status = request.Status
+                };
+
+                requestDtos.Add(requestDto);
+            }
+
+            return Ok(requestDtos);
+        }
+        #endregion
+
+        #region Get Pending Requests
+        [Authorize(Roles = StaticUserRoles.ADMIN)]
+        [HttpGet("pending")]
+        public async Task<IActionResult> GetPendingRequests()
+        {
+            var pendingRequests = await _context.requests
+                .Where(r => r.Status == RequestStatus.Pending)
+                .Include(r => r.Medicines)
+                .ToListAsync();
+
+            if ( pendingRequests == null || pendingRequests.Count == 0 )
+                return NotFound("No pending requests found.");
+
+            var requestDtos = new List<RequestDto>();
+
+            foreach ( var request in pendingRequests )
+            {
+                var patient = await _userManager.FindByIdAsync(request.UserId);
+                if ( patient == null )
+                {
+                    continue;
+                }
+
+                var requestDto = new RequestDto
+                {
+                    RequestId = request.Id, 
+                    PatientName = patient.UserName,
+                    MedicinesNames = request.Medicines.Select(m => m.Name).ToList(),
+                    Status = request.Status // Include the status
+                };
+
+                requestDtos.Add(requestDto);
+            }
+
+            return Ok(requestDtos);
+        }
+        #endregion
+
+        #region Get Requests By Patient Username
+        [HttpGet("{username}")]
+
+        public async Task<IActionResult> GetRequestsByPatientUsername(string username)
 		{
-			var pendingRequests = await _context.requests
-				.Where(r => r.Status == RequestStatus.Pending)
-				.Select(r => new RequestDto
-				{
-					Id = r.Id,
-					Status = r.Status,
-					PatientId = r.PatientId,
-					AdminId = r.AdminId,
-					MedicineIds = r.Medicines.Select(m => m.Id).ToList()
-				})
-				.ToListAsync();
+			var user = await _userManager.FindByNameAsync(username);
+			if (user == null)
+				return NotFound("User not found.");
 
-			return Ok(pendingRequests);
-		}
-		#endregion
-
-		#region Get All Requests 
-
-		[HttpGet("requests")]
-		public async Task<IActionResult> GetAllRequests()
-		{
 			var requests = await _context.requests
-				.Select(r => new RequestDto
+				.Include(r => r.Medicines) 
+				.Where(r => r.UserId == user.Id)
+				.ToListAsync();
+
+			if (requests == null || requests.Count == 0)
+				return NotFound("No requests found for this user.");
+
+			var requestDtos = new List<RequestDto>();
+
+			foreach (var request in requests)
+			{
+				var requestDto = new RequestDto
 				{
-					Id = r.Id,
-					Status = r.Status,
-					PatientId = r.PatientId,
-					AdminId = r.AdminId,
-					MedicineIds = r.Medicines.Select(m => m.Id).ToList()
-				})
-				.ToListAsync();
+                    RequestId = request.Id,
+                    PatientName = username,
+					MedicinesNames = request.Medicines.Select(m => m.Name).ToList(),
+					Status = request.Status
+				};
 
-			return Ok(requests);
-		}
-		#endregion
-
-		#region Get Requests By Id
-		[HttpGet("{id}")]
-		public async Task<IActionResult> GetById(int id)
-		{
-			// Retrieve the request by its ID, including associated medicines
-			var request = await _context.requests
-				.Include(r => r.Medicines)
-				.FirstOrDefaultAsync(r => r.Id == id);
-
-			// If request is not found, return 404 Not Found
-			if (request == null)
-			{
-				return NotFound();
+				requestDtos.Add(requestDto);
 			}
 
-			// Map the request entity to a DTO
-			var requestDto = new RequestDto
-			{
-				Id = request.Id,
-				Status = request.Status,
-				AdminId = request.AdminId,
-				PatientId = request.PatientId,
-				MedicineIds = request.Medicines.Select(m => m.Id).ToList()
-			};
-
-			return Ok(requestDto);
+			return Ok(requestDtos);
 		}
-		#endregion
+        #endregion
 
-		#region Post A Request
-		[HttpPost]
-		public async Task<IActionResult> CreateRequest([FromBody] RequestDto requestDto)
-		{
-			// Create a new request entity
-			var request = new Request
-			{
-				PatientId = requestDto.PatientId,
-			};
+        #region Update Requests Statue
+        [Authorize(Roles = StaticUserRoles.ADMIN)]
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateRequestStatus( int id, [FromBody] StatusUpdateDto statusUpdate )
+        {
+            var request = await _context.requests.FindAsync(id);
 
-			// Retrieve medicines based on the IDs provided in the DTO
-			var medicines = await _context.medicines
-				.Where(m => requestDto.MedicineIds.Contains(m.Id))
-				.ToListAsync();
+            if ( request == null )
+                return NotFound();
 
-			// Add medicines to the request
-			// Check if Medicines property is null
-			if (request.Medicines == null)
-			{
-				// If it's null, initialize it with an empty list
-				request.Medicines = new List<Medicine>();
-			}
+            if ( !Enum.TryParse(statusUpdate.Status, true, out RequestStatus requestStatus) )
+                return BadRequest("Invalid status value.");
 
-			// Now you can safely add medicines to request.Medicines
-			request.Medicines.AddRange(medicines);
+            request.Status = requestStatus;
+            _context.SaveChanges();
+
+            return Ok(request);
+        }
+        #endregion
+
+        #region Add Request
+
+        [HttpPost]
+        public async Task<IActionResult> PostRequest( [FromBody] AddRequestDto requestDto )
+        {
+            if ( !ModelState.IsValid )
+            {
+                return BadRequest(ModelState);
+            }
+
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            if ( currentUser == null )
+            {
+                return Unauthorized();
+            }
+
+            var newRequest = new Request
+            {
+                UserId = currentUser.Id,
+                Status = RequestStatus.Pending,
+                Medicines = await _context.medicines
+                    .Where(m => requestDto.MedicinesNames.Contains(m.Name))
+                    .ToListAsync()
+            };
+
+            _context.requests.Add(newRequest);
+            await _context.SaveChangesAsync();
+
+            var requestDtoResponse = new RequestDto
+            {
+                RequestId = newRequest.Id, 
+                PatientName = currentUser.UserName,
+                MedicinesNames = newRequest.Medicines.Select(m => m.Name).ToList(),
+                Status = newRequest.Status
+            };
+
+            return CreatedAtAction(nameof(GetRequestsByPatientUsername), new { username = currentUser.UserName }, requestDtoResponse);
+        }
+
+        #endregion
 
 
-			// Add the request to the context and save changes
-			_context.requests.Add(request);
-			await _context.SaveChangesAsync();
 
-			// Return the created request DTO with the newly generated ID
-			var createdRequestDto = new RequestDto
-			{
-				PatientId = request.PatientId,
-				MedicineIds = request.Medicines.Select(m => m.Id).ToList()
-			};
-
-			return CreatedAtAction(nameof(GetById), new { id = createdRequestDto.Id }, createdRequestDto);
-		}
-		#endregion
-
-		#region Update Requests Statue
-
-		[HttpPut("{id}")]
-		public async Task<IActionResult> UpdateRequestStatus(int id, [FromBody] RequestDto requestDto)
-		{
-			// Find the request by id
-			var Request = await _context.requests.FindAsync(id);
-
-			if (Request == null)
-
-				return NotFound(); // Request not found
-
-
-			// Update request status
-			Request.Status = requestDto.Status;
-			_context.SaveChanges();
-			return Ok(Request);
-		}
-		#endregion
-
-		#endregion
-
-	}
+        #endregion
+    }
 }

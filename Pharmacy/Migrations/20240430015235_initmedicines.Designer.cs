@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pharmacy.Context;
 
@@ -11,9 +12,11 @@ using Pharmacy.Context;
 namespace Pharmacy.Migrations
 {
     [DbContext(typeof(PharmacyDbContext))]
-    partial class PharmacyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240430015235_initmedicines")]
+    partial class initmedicines
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +24,6 @@ namespace Pharmacy.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("MedicineRequest", b =>
-                {
-                    b.Property<int>("MedicinesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RequestsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MedicinesId", "RequestsId");
-
-                    b.HasIndex("RequestsId");
-
-                    b.ToTable("MedicineRequest");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -297,66 +285,6 @@ namespace Pharmacy.Migrations
                     b.ToTable("medicines");
                 });
 
-            modelBuilder.Entity("Pharmacy.Models.Request", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("requests");
-                });
-
-            modelBuilder.Entity("Pharmacy.Models.SearchHistory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("SearchQuery")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("searchHistory");
-                });
-
-            modelBuilder.Entity("MedicineRequest", b =>
-                {
-                    b.HasOne("Pharmacy.Models.Medicine", null)
-                        .WithMany()
-                        .HasForeignKey("MedicinesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Pharmacy.Models.Request", null)
-                        .WithMany()
-                        .HasForeignKey("RequestsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -417,28 +345,6 @@ namespace Pharmacy.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Pharmacy.Models.Request", b =>
-                {
-                    b.HasOne("Pharmacy.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Pharmacy.Models.SearchHistory", b =>
-                {
-                    b.HasOne("Pharmacy.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Pharmacy.Models.Category", b =>
