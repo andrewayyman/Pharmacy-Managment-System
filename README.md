@@ -1,6 +1,6 @@
 # Pharmacy Management System
 
-A comprehensive Pharmacy Management System built with ASP.NET Core, Entity Framework Core, JWT authentication, and other modern technologies to facilitate the management of medicines, categories, patients, and requests.
+A comprehensive Pharmacy Management System built with ASP.NET Core, Entity Framework Core, JWT authentication, Identity, and other modern technologies to facilitate the management of medicines, categories, patients, and requests.
 
 ## Project Description
 
@@ -25,6 +25,7 @@ The Pharmacy Management System provides an online dashboard for managing medicin
 - ASP.NET Core
 - Entity Framework Core
 - JWT Authentication
+- Identity
 - SQL Server
 - LINQ
 - Dependency Injection
