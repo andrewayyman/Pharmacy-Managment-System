@@ -45,6 +45,14 @@ The project includes diagrams to illustrate the database design and architecture
 
 [View Diagrams](https://github.com/andrewayyman/Pharmacy-Managment-System/blob/master/IA_Diagram.pdf)
 
+## Postman Collection
+
+A Postman collection is provided to facilitate testing and exploring the API. The collection includes all the endpoints with sample requests and responses.
+
+1. Download the Postman collection file from the repository: [MoviesApi.postman_collection.json](Postman_Collections)
+2. Open Postman and import the collection
+
+
 
 
 ## Installation
