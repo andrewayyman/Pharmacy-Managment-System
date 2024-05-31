@@ -64,4 +64,5 @@ A Postman collection is provided to facilitate testing and exploring the API. Th
 
 ## Contributor
 
-This project was a collaborative effort with [Teammate's Name]([https://github.com/teammate](https://github.com/somaaali)).
+This project was a collaborative effort with [Esraa Ali](https://github.com/somaaali) for their contributions.
+
