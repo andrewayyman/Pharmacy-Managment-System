@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "051a3630-b556-4711-9455-dda3da76b536",
+		"name": "CategoriesController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34247348"
+	},
+	"item": [
+		{
+			"name": "GetCategories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5kcmV3YXltYW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM1YzQ2ZWIyLTQwZTktNGM4Ny1iYmNhLWMxYTE4OTY4ZWM1MiIsIkpXVElEIjoiZmU1OWI5ZGItYmMzOC00ZWJlLTlmZjYtNDMzODc5YWJkNTU3IiwiRmlyc3ROYW1lIjoiYW5kcmV3IiwiTGFzdE5hbWUiOiJheW1hbiIsIkFkZHJlcyI6ImhlbHdhbiIsIlBob25lIjoiMDEyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU4iLCJleHAiOjE3MTQ4NTk4NzAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.2D-PeKV0_glvz75qZGeAVQ0W7tVB-j7NsLwTtccUXzU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Categories",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCategoryById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJmNmQwNDFkMy03ZGExLTRiZmUtYjE0ZS1iMDBlYWQ4NzlhZDIiLCJKV1RJRCI6IjYxOGRlN2EyLWJkODItNGY4NC04NWY5LTMyODBiY2ZiMDA1MCIsIkZpcnN0TmFtZSI6InN0cmluZyIsIkxhc3ROYW1lIjoic3RyaW5nIiwiQWRkcmVzIjoic3RyaW5nIiwiUGhvbmUiOiIwMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImV4cCI6MTcxNDQ5NjU5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMyMiIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.W1uwkFN4oEgO86-gDmFJmn9wCRZkhvg7cfvOO4kAFFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "drugs",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/Categories/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Categories",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddCategory",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nMyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMDcwOTkzODItNGVjNC00NzIwLWIxOTQtMjcxZjZlOGM2NDhkIiwiSldUSUQiOiIyNzM0NzI2Mi03NDI2LTRjNjMtOGE2Ny04MThiM2RlMGJlYzAiLCJGaXJzdE5hbWUiOiJzdHJpbmcxIiwiTGFzdE5hbWUiOiJzdHJpbmcyIiwiQWRkcmVzIjoic3RyaW5nMSIsIlBob25lIjoiMDEyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU4iLCJleHAiOjE3MTQyNDg3MzgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NzI4NSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.T3gCX71-1j1ltK60CvUXSNIaJYT_772Seq3076oJMrM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Categories/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCategoryById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJmNmQwNDFkMy03ZGExLTRiZmUtYjE0ZS1iMDBlYWQ4NzlhZDIiLCJKV1RJRCI6IjYxOGRlN2EyLWJkODItNGY4NC04NWY5LTMyODBiY2ZiMDA1MCIsIkZpcnN0TmFtZSI6InN0cmluZyIsIkxhc3ROYW1lIjoic3RyaW5nIiwiQWRkcmVzIjoic3RyaW5nIiwiUGhvbmUiOiIwMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImV4cCI6MTcxNDQ5NjU5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMyMiIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.W1uwkFN4oEgO86-gDmFJmn9wCRZkhvg7cfvOO4kAFFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"value": "drugs",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/Categories/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCategoryById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJmNmQwNDFkMy03ZGExLTRiZmUtYjE0ZS1iMDBlYWQ4NzlhZDIiLCJKV1RJRCI6IjYxOGRlN2EyLWJkODItNGY4NC04NWY5LTMyODBiY2ZiMDA1MCIsIkZpcnN0TmFtZSI6InN0cmluZyIsIkxhc3ROYW1lIjoic3RyaW5nIiwiQWRkcmVzIjoic3RyaW5nIiwiUGhvbmUiOiIwMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImV4cCI6MTcxNDQ5NjU5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMyMiIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.W1uwkFN4oEgO86-gDmFJmn9wCRZkhvg7cfvOO4kAFFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "name",
+						"value": "drugs",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/Categories/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByName",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJmNmQwNDFkMy03ZGExLTRiZmUtYjE0ZS1iMDBlYWQ4NzlhZDIiLCJKV1RJRCI6IjYxOGRlN2EyLWJkODItNGY4NC04NWY5LTMyODBiY2ZiMDA1MCIsIkZpcnN0TmFtZSI6InN0cmluZyIsIkxhc3ROYW1lIjoic3RyaW5nIiwiQWRkcmVzIjoic3RyaW5nIiwiUGhvbmUiOiIwMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImV4cCI6MTcxNDQ5NjU5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMyMiIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.W1uwkFN4oEgO86-gDmFJmn9wCRZkhvg7cfvOO4kAFFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "drugs",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44322/api/Categories/name/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Categories",
+						"name",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateByName",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5kcmV3YXltYW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM1YzQ2ZWIyLTQwZTktNGM4Ny1iYmNhLWMxYTE4OTY4ZWM1MiIsIkpXVElEIjoiMmQ4NGYwZmEtZmY1NC00ODEyLTgyNGQtMjdjMTQ3ZDdjNjE1IiwiRmlyc3ROYW1lIjoiYW5kcmV3IiwiTGFzdE5hbWUiOiJheW1hbiIsIkFkZHJlcyI6ImhlbHdhbiIsIlBob25lIjoiMDEyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU4iLCJleHAiOjE3MTQ3MDI2MjQsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.piagOk1KDdVfZveDKlvLdjquQPUbx27DxEavu66d2M8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"drugss\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Categories/name/drugs",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Categories",
+						"name",
+						"drugs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteByName",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5kcmV3YXltYW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM1YzQ2ZWIyLTQwZTktNGM4Ny1iYmNhLWMxYTE4OTY4ZWM1MiIsIkpXVElEIjoiNGY1MDFlMWYtYTk0My00OTU0LWFjOGQtYTlmNzM1N2E3MTA3IiwiRmlyc3ROYW1lIjoiYW5kcmV3IiwiTGFzdE5hbWUiOiJheW1hbiIsIkFkZHJlcyI6ImhlbHdhbiIsIlBob25lIjoiMDEyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU4iLCJSb2xlSWQiOiI2MjRjMTBmZi1lOTliLTQzNDktOTUwZS1mNTkxMmU0OTc4MmMiLCJleHAiOjE3MTQ4NjQxMTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.FHNeQDBKJCTKuz8Uh6G27kTKmfBPBrBMdq7sMNmg1jQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Categories/name/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Categories",
+						"name",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

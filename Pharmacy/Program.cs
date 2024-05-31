@@ -1,3 +1,5 @@
+using Microsoft.OpenApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,18 +10,40 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Pharmacy Managment System",
+        Description = "A comprehensive Pharmacy Management System built with ASP.NET Core," +
+                      " Entity Framework Core, JWT authentication, and other modern technologies to facilitate the" +
+                      " management of medicines, categories, patients, and requests.\r\n\r\n",
+
+        TermsOfService = new Uri("https://www.google.com"),
+        Contact = new OpenApiContact
+        {
+            Name = "Andrew",
+            Email = "Andrewayman1000@gmail.com",
+            Url = new Uri("https://github.com/andrewayyman"),
+        }
+    });
+});
+
+
 
 // Add DB
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<PharmacyDbContext>(options =>
     options.UseSqlServer(connectionString));
 
+
 // Add Identity
 builder.Services
     .AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<PharmacyDbContext>()
     .AddDefaultTokenProviders();
+
 
 // Config Identity
 builder.Services.Configure<IdentityOptions>(options =>
