@@ -61,3 +61,7 @@ A Postman collection is provided to facilitate testing and exploring the API. Th
 1. Clone the repository:
    ```bash
    git clone https://github.com/andrewayyman/Pharmacy-Managment-System.git
+
+## Contributor
+
+This project was a collaborative effort with [Teammate's Name](https://github.com/teammate).
