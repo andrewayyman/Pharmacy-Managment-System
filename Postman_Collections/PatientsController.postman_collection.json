@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "4aadb283-5913-434e-9e9c-5d462f405f2d",
+		"name": "PatientsController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34247348"
+	},
+	"item": [
+		{
+			"name": "GetPatients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5kcmV3YXltYW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM1YzQ2ZWIyLTQwZTktNGM4Ny1iYmNhLWMxYTE4OTY4ZWM1MiIsIkpXVElEIjoiYmE5N2QwMzgtNzIwNC00MDY5LThhYTYtNjEyZTgxNmVmOGEzIiwiRmlyc3ROYW1lIjoiYW5kcmV3IiwiTGFzdE5hbWUiOiJheW1hbiIsIkFkZHJlcyI6ImhlbHdhbiIsIlBob25lIjoiMDEyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU4iLCJleHAiOjE3MTQ3MDIwNTgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.W1XLRt_G4kTnvlKld77nwGxzUv7sBAImTSxRN1r47d4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Patient",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewPatientsByUsername",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5kcmV3YXltYW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM1YzQ2ZWIyLTQwZTktNGM4Ny1iYmNhLWMxYTE4OTY4ZWM1MiIsIkpXVElEIjoiYmE5N2QwMzgtNzIwNC00MDY5LThhYTYtNjEyZTgxNmVmOGEzIiwiRmlyc3ROYW1lIjoiYW5kcmV3IiwiTGFzdE5hbWUiOiJheW1hbiIsIkFkZHJlcyI6ImhlbHdhbiIsIlBob25lIjoiMDEyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU4iLCJleHAiOjE3MTQ3MDIwNTgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.W1XLRt_G4kTnvlKld77nwGxzUv7sBAImTSxRN1r47d4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Patient/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Patient",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePatient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5kcmV3YXltYW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM1YzQ2ZWIyLTQwZTktNGM4Ny1iYmNhLWMxYTE4OTY4ZWM1MiIsIkpXVElEIjoiYmE5N2QwMzgtNzIwNC00MDY5LThhYTYtNjEyZTgxNmVmOGEzIiwiRmlyc3ROYW1lIjoiYW5kcmV3IiwiTGFzdE5hbWUiOiJheW1hbiIsIkFkZHJlcyI6ImhlbHdhbiIsIlBob25lIjoiMDEyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU4iLCJleHAiOjE3MTQ3MDIwNTgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.W1XLRt_G4kTnvlKld77nwGxzUv7sBAImTSxRN1r47d4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Patient?username=a",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

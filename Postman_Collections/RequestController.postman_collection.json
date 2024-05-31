@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "97e4fb03-5520-4c65-806e-dd45e9881360",
+		"name": "RequestController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34247348"
+	},
+	"item": [
+		{
+			"name": "GetRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Request",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPendingRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Request/pending",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Request",
+						"pending"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRequestByUsername",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Request/a",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Request",
+						"a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddRequest",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5kcmV3dXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiZjRhZGNmMTUtMmMyZS00NmQ5LTlkZTctYzRjYTJjZWMwZTk1IiwiSldUSUQiOiIzZTFkOWQxMC0yZmFhLTQxOTgtYTNmNC1mOTQ1YjkyNDIxMGUiLCJGaXJzdE5hbWUiOiJhbmRyZXciLCJMYXN0TmFtZSI6InVzZXIiLCJBZGRyZXMiOiJudXpoYSIsIlBob25lIjoiMDEyMDY3NDExOTIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQQVRJRU5UIiwiUm9sZUlkIjoiNmIwMDIwODYtOTdmYy00ZGVjLWFjZDEtMDYyNmRhYzhiZjgwIiwiZXhwIjoxNzE1MDMzMTY0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUyMDciLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.swO47zyuTIok00ejKgcEi0frk9rTYgezt_3KhsMZ_C8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"patientName\": \"string\",\r\n  \"medicinesNames\": [\r\n    \"vatikaaaa\",\r\n    \"clear\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Request",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateRequest",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"string\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Request/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Request",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

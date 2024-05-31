@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "2f23f2f4-4d2a-49e9-92ec-2427cbd22359",
+		"name": "MedicinesController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34247348"
+	},
+	"item": [
+		{
+			"name": "ViewMedicines",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJmNmQwNDFkMy03ZGExLTRiZmUtYjE0ZS1iMDBlYWQ4NzlhZDIiLCJKV1RJRCI6IjYxOGRlN2EyLWJkODItNGY4NC04NWY5LTMyODBiY2ZiMDA1MCIsIkZpcnN0TmFtZSI6InN0cmluZyIsIkxhc3ROYW1lIjoic3RyaW5nIiwiQWRkcmVzIjoic3RyaW5nIiwiUGhvbmUiOiIwMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImV4cCI6MTcxNDQ5NjU5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMyMiIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.W1uwkFN4oEgO86-gDmFJmn9wCRZkhvg7cfvOO4kAFFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Medicines",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Medicines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewMedicineById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJmNmQwNDFkMy03ZGExLTRiZmUtYjE0ZS1iMDBlYWQ4NzlhZDIiLCJKV1RJRCI6IjYxOGRlN2EyLWJkODItNGY4NC04NWY5LTMyODBiY2ZiMDA1MCIsIkZpcnN0TmFtZSI6InN0cmluZyIsIkxhc3ROYW1lIjoic3RyaW5nIiwiQWRkcmVzIjoic3RyaW5nIiwiUGhvbmUiOiIwMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImV4cCI6MTcxNDQ5NjU5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMyMiIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.W1uwkFN4oEgO86-gDmFJmn9wCRZkhvg7cfvOO4kAFFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Medicines/id/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Medicines",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddMedicine",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJmNmQwNDFkMy03ZGExLTRiZmUtYjE0ZS1iMDBlYWQ4NzlhZDIiLCJKV1RJRCI6IjYxOGRlN2EyLWJkODItNGY4NC04NWY5LTMyODBiY2ZiMDA1MCIsIkZpcnN0TmFtZSI6InN0cmluZyIsIkxhc3ROYW1lIjoic3RyaW5nIiwiQWRkcmVzIjoic3RyaW5nIiwiUGhvbmUiOiIwMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImV4cCI6MTcxNDQ5NjU5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMyMiIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.W1uwkFN4oEgO86-gDmFJmn9wCRZkhvg7cfvOO4kAFFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"showergel233\",\r\n  \"description\": \"estAA7ma\",\r\n  \"price\":50,\r\n  \"categoryId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Medicines",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Medicines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateMedicineById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5kcmV3YXltYW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM1YzQ2ZWIyLTQwZTktNGM4Ny1iYmNhLWMxYTE4OTY4ZWM1MiIsIkpXVElEIjoiNGY1MDFlMWYtYTk0My00OTU0LWFjOGQtYTlmNzM1N2E3MTA3IiwiRmlyc3ROYW1lIjoiYW5kcmV3IiwiTGFzdE5hbWUiOiJheW1hbiIsIkFkZHJlcyI6ImhlbHdhbiIsIlBob25lIjoiMDEyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU4iLCJSb2xlSWQiOiI2MjRjMTBmZi1lOTliLTQzNDktOTUwZS1mNTkxMmU0OTc4MmMiLCJleHAiOjE3MTQ4NjQxMTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.FHNeQDBKJCTKuz8Uh6G27kTKmfBPBrBMdq7sMNmg1jQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"panadoll not extra\",\r\n  \"Description\": \"msdd3 moot\",\r\n  \"Price\": 60,\r\n  \"CategoryId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Medicines/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Medicines",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteMedicineById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJmNmQwNDFkMy03ZGExLTRiZmUtYjE0ZS1iMDBlYWQ4NzlhZDIiLCJKV1RJRCI6IjYxOGRlN2EyLWJkODItNGY4NC04NWY5LTMyODBiY2ZiMDA1MCIsIkZpcnN0TmFtZSI6InN0cmluZyIsIkxhc3ROYW1lIjoic3RyaW5nIiwiQWRkcmVzIjoic3RyaW5nIiwiUGhvbmUiOiIwMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImV4cCI6MTcxNDQ5NjU5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMyMiIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.W1uwkFN4oEgO86-gDmFJmn9wCRZkhvg7cfvOO4kAFFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Medicines/99",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Medicines",
+						"99"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewMedicineByName",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJmNmQwNDFkMy03ZGExLTRiZmUtYjE0ZS1iMDBlYWQ4NzlhZDIiLCJKV1RJRCI6IjYxOGRlN2EyLWJkODItNGY4NC04NWY5LTMyODBiY2ZiMDA1MCIsIkZpcnN0TmFtZSI6InN0cmluZyIsIkxhc3ROYW1lIjoic3RyaW5nIiwiQWRkcmVzIjoic3RyaW5nIiwiUGhvbmUiOiIwMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImV4cCI6MTcxNDQ5NjU5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMyMiIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.W1uwkFN4oEgO86-gDmFJmn9wCRZkhvg7cfvOO4kAFFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Medicines/name/adol",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Medicines",
+						"name",
+						"adol"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateMedicineByName",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5kcmV3YXltYW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM1YzQ2ZWIyLTQwZTktNGM4Ny1iYmNhLWMxYTE4OTY4ZWM1MiIsIkpXVElEIjoiYmY2OWMyMGEtZWE5ZC00NThhLWFkNmYtNjc3ZWFjODM5OGJkIiwiRmlyc3ROYW1lIjoiYW5kcmV3IiwiTGFzdE5hbWUiOiJheW1hbiIsIkFkZHJlcyI6ImhlbHdhbiIsIlBob25lIjoiMDEyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQURNSU4iLCJSb2xlSWQiOiI2MjRjMTBmZi1lOTliLTQzNDktOTUwZS1mNTkxMmU0OTc4MmMiLCJleHAiOjE3MTQ4ODA4NzMsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.6hsn2Lx5rppRD5Lst_jASZbULYSE6jb2rc-cSW5CW-E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Name",
+							"value": "adol",
+							"type": "text"
+						},
+						{
+							"key": "Description",
+							"value": "soda3 mot",
+							"type": "text"
+						},
+						{
+							"key": "Price",
+							"value": "33",
+							"type": "text"
+						},
+						{
+							"key": "Image",
+							"type": "file",
+							"src": "/E:/Computer Science/CodeTest/DevCreedMoviesApi/DevCreedMoviesApi/Uploads/ShawshankRedemptionMoviePoster.jpg"
+						},
+						{
+							"key": "CategoryId",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/Medicines/name/adol",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Medicines",
+						"name",
+						"adol"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteMedicineByName",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJmNmQwNDFkMy03ZGExLTRiZmUtYjE0ZS1iMDBlYWQ4NzlhZDIiLCJKV1RJRCI6IjYxOGRlN2EyLWJkODItNGY4NC04NWY5LTMyODBiY2ZiMDA1MCIsIkZpcnN0TmFtZSI6InN0cmluZyIsIkxhc3ROYW1lIjoic3RyaW5nIiwiQWRkcmVzIjoic3RyaW5nIiwiUGhvbmUiOiIwMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImV4cCI6MTcxNDQ5NjU5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMyMiIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjMwMDAifQ.W1uwkFN4oEgO86-gDmFJmn9wCRZkhvg7cfvOO4kAFFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Medicines/name/showegel",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Medicines",
+						"name",
+						"showegel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FiltreMedicines",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYW5kcmV3dXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiZjRhZGNmMTUtMmMyZS00NmQ5LTlkZTctYzRjYTJjZWMwZTk1IiwiSldUSUQiOiIwNzQxMTFjYi1lY2JmLTRmYTUtOTM2Yy03ZWVhMDIwMzQyMzAiLCJGaXJzdE5hbWUiOiJhbmRyZXciLCJMYXN0TmFtZSI6InVzZXIiLCJBZGRyZXMiOiJudXpoYSIsIlBob25lIjoiMDEyMDY3NDExOTIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQQVRJRU5UIiwiUm9sZUlkIjoiNmIwMDIwODYtOTdmYy00ZGVjLWFjZDEtMDYyNmRhYzhiZjgwIiwiZXhwIjoxNzE1MDA4MjYxLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUyMDciLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.FdY0khtELCxEVB1SOfGvQAa4O6VNIn-FnlnDPMT-IJE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Medicines/Filter?keyword",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Medicines",
+						"Filter"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FilterByCategory",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcjIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjAxNGVmYTExLThmZGUtNDA3My1hYTQwLWUyM2M4ODNlMDViNSIsIkpXVElEIjoiMzAxYjdjNTItYzVjOS00NmY1LWJkZDYtYmE1YWJiYjZkMjQxIiwiRmlyc3ROYW1lIjoidXNlcjIiLCJMYXN0TmFtZSI6InVzZXIyIiwiQWRkcmVzIjoibm96aGEiLCJQaG9uZSI6IjAxNSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlBBVElFTlQiLCJleHAiOjE3MTQ2OTY0MjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.wOBVHJ06qMDMDpnX0cBmDettaMnXU4S9StB4biuZI0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/Medicines/filter?category=Antibiotic",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"Medicines",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Antibiotic"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

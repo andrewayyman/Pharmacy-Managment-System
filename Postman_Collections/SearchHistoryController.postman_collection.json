@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "e62a2179-9cb3-4624-972d-7f371af91aad",
+		"name": "SearchHistoryController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34247348"
+	},
+	"item": [
+		{
+			"name": "Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcjIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjAxNGVmYTExLThmZGUtNDA3My1hYTQwLWUyM2M4ODNlMDViNSIsIkpXVElEIjoiYjU0YjhmNzktZDRkZC00YWQzLWJkMDMtYThmYjI2MmFjMDEwIiwiRmlyc3ROYW1lIjoidXNlcjIiLCJMYXN0TmFtZSI6InVzZXIyIiwiQWRkcmVzIjoibm96aGEiLCJQaG9uZSI6IjAxNSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlBBVElFTlQiLCJleHAiOjE3MTQ2OTYxNzUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.hMLz_T3YJgCPReGuG-urDoO8ppe08ZcIGtmS31aeZHc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/SearchHistory?searchQuery=adol",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"SearchHistory"
+					],
+					"query": [
+						{
+							"key": "searchQuery",
+							"value": "adol"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetHistory",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcjIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjAxNGVmYTExLThmZGUtNDA3My1hYTQwLWUyM2M4ODNlMDViNSIsIkpXVElEIjoiYjU0YjhmNzktZDRkZC00YWQzLWJkMDMtYThmYjI2MmFjMDEwIiwiRmlyc3ROYW1lIjoidXNlcjIiLCJMYXN0TmFtZSI6InVzZXIyIiwiQWRkcmVzIjoibm96aGEiLCJQaG9uZSI6IjAxNSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlBBVElFTlQiLCJleHAiOjE3MTQ2OTYxNzUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMjIiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDozMDAwIn0.hMLz_T3YJgCPReGuG-urDoO8ppe08ZcIGtmS31aeZHc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44322/api/SearchHistory",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"SearchHistory"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
