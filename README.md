@@ -39,9 +39,12 @@ The Pharmacy Management System provides an online dashboard for managing medicin
 - Request functionality for patients to request medicines.
 - History tracking for patient requests and medicine searches.
 
-## Database Models
+## Database Models & Diagrams
 
-The project includes a database design schema to efficiently store and manage medicines, categories, patients, and requests.
+The project includes diagrams to illustrate the database design and architecture. You can view the diagrams by clicking the link below:
+
+[View Diagrams](https://github.com/andrewayyman/Pharmacy-Managment-System/blob/master/IA_Diagram.pdf)
+
 
 
 ## Installation
